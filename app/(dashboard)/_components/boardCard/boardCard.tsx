@@ -9,6 +9,9 @@ import { Footer } from "./Footer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Actions } from "@/components/actions";
 import { MoreHorizontal } from "lucide-react";
+import { UseApiMutation } from "@/hooks/use-api-mutation";
+import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 interface BoardCardProps {
   id: string;
@@ -36,6 +39,23 @@ export const BoardCard = ({
   const createdAtLabel = formatDistanceToNow(createdAt, {
     addSuffix: true,
   });
+
+  const { mutate: onFavorite, pending: pendingFavorite } = UseApiMutation(
+    api.board.favorite
+  );
+  const { mutate: onUnfavorite, pending: pendingUnfavorite } = UseApiMutation(
+    api.board.unfavorite
+  );
+
+  const ToggleFav = () => {
+    if (isFavorite) {
+      onUnfavorite({ id }).catch(() => toast.error("Failed to do unFavorite"));
+    } else {
+      onFavorite({ id, orgId }).catch(() =>
+        toast.error("Failed to add Favorite")
+      );
+    }
+  };
   return (
     <Link href={`/board/${id}`}>
       <div className="group aspect-[100/127] border rounded-lg flex flex-col justify-between overflow-hidden ">
@@ -54,7 +74,7 @@ export const BoardCard = ({
           authorLabel={authorLabel}
           createdAtLabel={createdAtLabel}
           isFavorite={isFavorite}
-          onClick={() => {}}
+          onClick={ToggleFav}
           disabled={false}
         />
       </div>

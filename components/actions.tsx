@@ -9,10 +9,11 @@ import {
 import { api } from "@/convex/_generated/api";
 import { UseApiMutation } from "@/hooks/use-api-mutation";
 import { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
-import { Link2, Trash } from "lucide-react";
+import { Link2, Pencil, Trash } from "lucide-react";
 import { toast } from "sonner";
 import { ConfirmModal } from "./confirm-modal";
 import { Button } from "./ui/button";
+import { useRenameModal } from "@/store/use-remain-modal";
 
 interface ActionProps {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ export const Actions = ({
   title,
   side,
 }: ActionProps) => {
+  const { onOpen } = useRenameModal();
   const { mutate, pending } = UseApiMutation(api.board.remove);
   const onCopyLink = () => {
     navigator.clipboard
@@ -55,6 +57,13 @@ export const Actions = ({
           <Link2 className="h-4 w-4 mr-2" />
           Copy Board Link
         </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => onOpen(id, title)}
+          className="cursor-pointer p-3"
+        >
+          <Pencil className="h-4 w-4 mr-2" />
+          Rename
+        </DropdownMenuItem>
         <ConfirmModal
           header="Delete Task?"
           description="It will delete all Content of this Task"
@@ -63,7 +72,7 @@ export const Actions = ({
         >
           <Button
             variant="ghost"
-             className="cursor-pointer p-3 text-sm w-full justify-start font-normal"
+            className="cursor-pointer p-3 text-sm w-full justify-start font-normal"
           >
             <Trash className="h-4 w-4 mr-2" />
             Remove

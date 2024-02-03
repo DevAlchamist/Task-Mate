@@ -8,8 +8,10 @@ import { api } from "@/convex/_generated/api";
 import { useOrganization } from "@clerk/nextjs";
 import { UseApiMutation } from "@/hooks/use-api-mutation";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const EmptyBoard = () => {
+  const router = useRouter();
   const { organization } = useOrganization();
   const { mutate, pending } = UseApiMutation(api.board.create);
 
@@ -18,9 +20,13 @@ const EmptyBoard = () => {
     mutate({
       orgId: organization.id,
       title: "Untitled",
-    }).then((id) => {
-      toast.success("Task Board Created"); //this have to redirect user to /taskboard/{id}
-    }).catch(()=>toast.error("Failed to Create Task Board"))
+    })
+      .then((id) => {
+        toast.success("Task Board Created");
+        //this have to redirect user to /taskboard/{id}
+        router.push(`/board/${id}`);
+      })
+      .catch(() => toast.error("Failed to Create Task Board"));
   };
   return (
     <div className="flex flex-col items-center">
