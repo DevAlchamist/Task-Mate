@@ -22,7 +22,6 @@ export const create = mutation({
       throw new Error("Unauthorized");
     }
     const randomImg = images[Math.floor(Math.random() * images.length)];
-    console.log(randomImg, "TEST");
     const board = await ctx.db.insert("boards", {
       title: args.title,
       orgId: args.orgId,
