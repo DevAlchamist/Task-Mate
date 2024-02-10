@@ -11,7 +11,6 @@ export type Camera = {
 
 export enum LayerType {
   Square,
-  Rhombus,
   Circle,
   Path,
   Text,
@@ -39,15 +38,6 @@ export enum Side {
 
 export type SquareLayer = {
   type: LayerType.Square;
-  x: number;
-  y: number;
-  height: number;
-  width: number;
-  fill: Color;
-  Value?: string;
-};
-export type RhombusLayer = {
-  type: LayerType.Rhombus;
   x: number;
   y: number;
   height: number;
@@ -107,7 +97,6 @@ export type CanvasState =
       layerType:
         | LayerType.Circle
         | LayerType.Note
-        | LayerType.Rhombus
         | LayerType.Square
         | LayerType.Text;
     }
@@ -143,5 +132,4 @@ export type Layer =
   | CircleLayer
   | PathLayer
   | TextLayer
-  | NoteLayer
-  | RhombusLayer;
+  | NoteLayer;

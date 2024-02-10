@@ -103,20 +103,6 @@ export const Toolbar = ({
             }
           />
           <ToolButton
-            label="Rhombus"
-            icon={Diamond}
-            isActive={
-              canvasState.mode === CanvasMode.Inserting &&
-              canvasState.layerType === LayerType.Rhombus
-            }
-            onClick={() =>
-              setCanvasState({
-                mode: CanvasMode.Inserting,
-                layerType: LayerType.Rhombus,
-              })
-            }
-          />
-          <ToolButton
             label="Pencil"
             icon={Pencil}
             isActive={canvasState.mode === CanvasMode.Pencil}
