@@ -1,31 +1,34 @@
 import { colorToCss } from "@/lib/utils";
-import { SquareLayer } from "@/types/canvas";
+import { RectangleLayer } from "@/types/canvas";
 
-interface SquareProps {
+interface RectangleProps {
   id: string;
-  layer: SquareLayer;
+  layer: RectangleLayer;
   onPointerDown: (e: React.PointerEvent, id: string) => void;
   selectionColor?: string;
-}
+};
 
-export const Square = ({
+export const Rectangle = ({
   id,
   layer,
   onPointerDown,
   selectionColor,
-}: SquareProps) => {
+}: RectangleProps) => {
   const { x, y, width, height, fill } = layer;
+
   return (
     <rect
-      onPointerDown={(e) => onPointerDown(e, id)}
       className="drop-shadow-md"
-      style={{ transform: `translate(${x}px,${y}px)` }}
+      onPointerDown={(e) => onPointerDown(e, id)}
+      style={{
+        transform: `translate(${x}px, ${y}px)`,
+      }}
       x={0}
       y={0}
       width={width}
       height={height}
       strokeWidth={1}
-      fill={fill ? colorToCss(fill) : "#cccc"}
+      fill={fill ? colorToCss(fill) : "#000"}
       stroke={selectionColor || "transparent"}
     />
   );

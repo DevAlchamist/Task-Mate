@@ -1,25 +1,28 @@
 import { colorToCss } from "@/lib/utils";
-import { CircleLayer } from "@/types/canvas";
+import { EllipseLayer } from "@/types/canvas";
 
-interface CircleLayerProps {
+interface EllipseProps {
   id: string;
-  layer: CircleLayer;
+  layer: EllipseLayer;
   onPointerDown: (e: React.PointerEvent, id: string) => void;
   selectionColor?: string;
-}
+};
 
-export const Circle = ({
+export const Ellipse = ({
   id,
   layer,
   onPointerDown,
   selectionColor,
-}: CircleLayerProps) => {
+}: EllipseProps) => {
   return (
     <ellipse
       className="drop-shadow-md"
       onPointerDown={(e) => onPointerDown(e, id)}
       style={{
-        transform: `translate(${layer.x}px,${layer.y}px)`,
+        transform: `translate(
+          ${layer.x}px,
+          ${layer.y}px
+        )`
       }}
       cx={layer.width / 2}
       cy={layer.height / 2}

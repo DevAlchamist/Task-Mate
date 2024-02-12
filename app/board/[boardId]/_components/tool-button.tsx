@@ -1,6 +1,9 @@
+"use client";
+
+import { LucideIcon } from "lucide-react";
+
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
-import { LucideIcon } from "lucide-react";
 
 interface ToolButtonProps {
   label: string;
@@ -8,11 +11,11 @@ interface ToolButtonProps {
   onClick: () => void;
   isActive?: boolean;
   isDisabled?: boolean;
-}
+};
 
 export const ToolButton = ({
-  icon: Icon,
   label,
+  icon: Icon,
   onClick,
   isActive,
   isDisabled,

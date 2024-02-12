@@ -1,13 +1,15 @@
-import { api } from "@/convex/_generated/api";
 import { auth, currentUser } from "@clerk/nextjs";
 import { Liveblocks } from "@liveblocks/node";
 import { ConvexHttpClient } from "convex/browser";
 
-const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
+import { api } from "@/convex/_generated/api";
+
+const convex = new ConvexHttpClient(
+  process.env.NEXT_PUBLIC_CONVEX_URL!
+);
 
 const liveblocks = new Liveblocks({
-  secret:
-    "sk_dev_WbxXNqKKELmKcH5ogvrRCavPazWNXiu6xxawi_ArllgnsOB9aq3cppsO7pLguaOF",
+  secret: process.env.LIVEBLOCKS_SECRET_KEY!,
 });
 
 export async function POST(request: Request) {
@@ -26,11 +28,14 @@ export async function POST(request: Request) {
   }
 
   const userInfo = {
-    name: user.firstName || "Teammate",
-    picture: user.imageUrl!,
+    name: user.firstName || "Teammeate",
+    picture: user.imageUrl,
   };
 
-  const session = liveblocks.prepareSession(user.id, { userInfo });
+  const session = liveblocks.prepareSession(
+    user.id,
+    { userInfo }
+  );
 
   if (room) {
     session.allow(room, session.FULL_ACCESS);
@@ -38,4 +43,4 @@ export async function POST(request: Request) {
 
   const { status, body } = await session.authorize();
   return new Response(body, { status });
-}
+};

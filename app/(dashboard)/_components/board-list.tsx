@@ -1,12 +1,14 @@
 "use client";
 
 import { useQuery } from "convex/react";
-import EmptyBoard from "./empty-board";
-import EmptyFav from "./empty-fav";
-import EmptySearch from "./empty-search";
+
 import { api } from "@/convex/_generated/api";
-import { BoardCard } from "./boardCard/boardCard";
-import { NewBoardButton } from "./newBoardButton";
+
+import { BoardCard } from "./board-card";
+import { EmptySearch } from "./empty-search";
+import { EmptyBoards } from "./empty-boards";
+import { EmptyFavorites } from "./empty-favorites";
+import { NewBoardButton } from "./new-board-button";
 
 interface BoardListProps {
   orgId: string;
@@ -14,15 +16,22 @@ interface BoardListProps {
     search?: string;
     favorites?: string;
   };
-}
+};
 
-export const BoardList = ({ orgId, query }: BoardListProps) => {
-  const data = useQuery(api.boards.get, { orgId, ...query });
+export const BoardList = ({
+  orgId,
+  query,
+}: BoardListProps) => {
+  const data = useQuery(api.boards.get, { 
+    orgId,
+    ...query,
+  });
+
   if (data === undefined) {
     return (
-      <div className="">
+      <div>
         <h2 className="text-3xl">
-          {query.favorites ? "Favorite Task" : "Task Board"}
+          {query.favorites ? "Favorite Tasks" : "Task boards"}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
           <NewBoardButton orgId={orgId} disabled />
@@ -32,21 +41,25 @@ export const BoardList = ({ orgId, query }: BoardListProps) => {
           <BoardCard.Skeleton />
         </div>
       </div>
-    );
+    )
   }
+
   if (!data?.length && query.search) {
     return <EmptySearch />;
   }
+
   if (!data?.length && query.favorites) {
-    return <EmptyFav />;
+    return <EmptyFavorites />
   }
+
   if (!data?.length) {
-    return <EmptyBoard />;
+    return <EmptyBoards />
   }
+
   return (
-    <div className="">
+    <div>
       <h2 className="text-3xl">
-        {query.favorites ? "Favorite Task" : "Task Board"}
+        {query.favorites ? "Favorite Tasks" : "Task boards"}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
         <NewBoardButton orgId={orgId} />
