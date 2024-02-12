@@ -1,8 +1,8 @@
 import { Loader } from "lucide-react";
 
-import { InfoSkeleton } from "./info";
-import { ToolbarSkeleton } from "./toolbar";
-import { ParticipantsSkeleton } from "./participants";
+import { InfoSkeleton } from "@/app/board/[boardId]/_components/info";
+import { ToolbarSkeleton } from "@/app/board/[boardId]/_components/toolbar";
+import { ParticipantsSkeleton } from "@/app/board/[boardId]/_components/participants";
 
 export const Loading = () => {
   return (

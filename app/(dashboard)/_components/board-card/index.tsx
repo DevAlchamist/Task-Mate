@@ -12,8 +12,8 @@ import { Actions } from "@/components/actions";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useApiMutation } from "@/hooks/use-api-mutation";
 
-import { Footer } from "./footer";
-import { Overlay } from "./overlay";
+import { Footer } from "@/app/(dashboard)/_components/board-card/footer";
+import { Overlay } from "@/app/(dashboard)/_components/board-card/overlay";
 
 interface BoardCardProps {
   id: string;

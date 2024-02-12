@@ -11,7 +11,7 @@ import {
 
 import { CanvasMode, CanvasState, LayerType } from "@/types/canvas";
 
-import { ToolButton } from "./tool-button";
+import { ToolButton } from "@/app/board/[boardId]/_components/tool-button";
 
 interface ToolbarProps {
   canvasState: CanvasState;

@@ -9,8 +9,8 @@ import {
 } from "@/liveblocks.config";
 import { colorToCss } from "@/lib/utils";
 
-import { Cursor } from "./cursor";
-import { Path } from "./path";
+import { Cursor } from "@/app/board/[boardId]/_components/cursor";
+import { Path } from "@/app/board/[boardId]/_components/path";
 
 const Cursors = () => {
   const ids = useOthersConnectionIds();

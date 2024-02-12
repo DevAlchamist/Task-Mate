@@ -10,7 +10,7 @@ import { useMutation, useSelf } from "@/liveblocks.config";
 import { useDeleteLayers } from "@/hooks/use-delete-layers";
 import { useSelectionBounds } from "@/hooks/use-selection-bounds";
 
-import { ColorPicker } from "./color-picker";
+import { ColorPicker } from "@/app/board/[boardId]/_components/color-picker";
 
 interface SelectionToolsProps {
   camera: Camera;

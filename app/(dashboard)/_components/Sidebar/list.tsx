@@ -2,7 +2,7 @@
 
 import { useOrganizationList } from "@clerk/nextjs";
 
-import { Item } from "./item";
+import { Item } from "@/app/(dashboard)/_components/sidebar/item";
 
 export const List = () => {
   const { userMemberships } = useOrganizationList({

@@ -6,11 +6,11 @@ import { colorToCss } from "@/lib/utils";
 import { LayerType } from "@/types/canvas";
 import { useStorage } from "@/liveblocks.config";
 
-import { Text } from "./text";
-import { Ellipse } from "./ellipse";
-import { Rectangle } from "./rectangle";
-import { Note } from "./note";
-import { Path } from "./path";
+import { Text } from "@/app/board/[boardId]/_components/text";
+import { Ellipse } from "@/app/board/[boardId]/_components/ellipse";
+import { Rectangle } from "@/app/board/[boardId]/_components/rectangle";
+import { Note } from "@/app/board/[boardId]/_components/note";
+import { Path } from "@/app/board/[boardId]/_components/path";
 
 interface LayerPreviewProps {
   id: string;

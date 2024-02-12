@@ -4,11 +4,11 @@ import { useQuery } from "convex/react";
 
 import { api } from "@/convex/_generated/api";
 
-import { BoardCard } from "./board-card";
-import { EmptySearch } from "./empty-search";
-import { EmptyBoards } from "./empty-boards";
-import { EmptyFavorites } from "./empty-favorites";
-import { NewBoardButton } from "./new-board-button";
+import { BoardCard } from "@/app/(dashboard)/_components/board-card";
+import { EmptySearch } from "@/app/(dashboard)/_components/empty-search";
+import { EmptyBoards } from "@/app/(dashboard)/_components/empty-boards";
+import { EmptyFavorites } from "@/app/(dashboard)/_components/empty-favorites";
+import { NewBoardButton } from "@/app/(dashboard)/_components/new-board-button";
 
 interface BoardListProps {
   orgId: string;

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../images/Addasubheading-ezgif.com-video-to-gif-converter.gif";
+import logo from "@/images/Addasubheading-ezgif.com-video-to-gif-converter.gif";
 
 export const Loading = () => {
   return (

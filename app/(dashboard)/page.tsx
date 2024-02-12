@@ -2,8 +2,8 @@
 
 import { useOrganization } from "@clerk/nextjs";
 
-import { EmptyOrg } from "./_components/empty-org";
-import { BoardList } from "./_components/board-list";
+import { EmptyOrg } from "@/app/(dashboard)/_components/empty-org";
+import { BoardList } from "@/app/(dashboard)/_components/board-list";
 
 interface DashboardPageProps {
   searchParams: {

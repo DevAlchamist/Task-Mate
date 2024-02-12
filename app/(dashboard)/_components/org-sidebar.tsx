@@ -6,7 +6,7 @@ import { Poppins } from "next/font/google";
 import { LayoutDashboard, Star } from "lucide-react";
 import { OrganizationSwitcher } from "@clerk/nextjs";
 import { useSearchParams } from "next/navigation";
-import logo from "../../../images/Dash-logo-removebg-preview.png";
+import logo from "@/images/Dash-logo-removebg-preview.png";
 
 
 import { cn } from "@/lib/utils";
