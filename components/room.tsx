@@ -25,7 +25,7 @@ export const Room = ({
         cursor: null,
         selection: [],
         pencilDraft: null,
-        penColor: null,
+        pencilColor: null,
       }}
       initialStorage={{
         layers: new LiveMap<string, LiveObject<Layer>>(),
