@@ -1,3 +1,9 @@
+Updated Ui Image of The application
+
+file:///home/dev-alchamist/Downloads/Create-Next-App%20(1).png
+file:///home/dev-alchamist/Downloads/Create-Next-App.png
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
