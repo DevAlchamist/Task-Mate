@@ -1,7 +1,8 @@
 Updated Ui Image of The application
 
-file:///home/dev-alchamist/Downloads/Create-Next-App%20(1).png
-file:///home/dev-alchamist/Downloads/Create-Next-App.png
+![Create-Next-App](https://github.com/DevAlchamist/Task-Mate/assets/154456084/95cf089a-6043-4b62-9d04-9700e8b19bcf)
+![Create-Next-App (1)](https://github.com/DevAlchamist/Task-Mate/assets/154456084/acdcbf77-7cfb-4605-9789-f167d0fdd94b)
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
